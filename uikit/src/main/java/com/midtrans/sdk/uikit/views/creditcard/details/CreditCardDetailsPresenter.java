@@ -374,10 +374,6 @@ public class CreditCardDetailsPresenter extends BaseCreditCardPresenter<CreditCa
         }
     }
 
-    public void trackEvent(String eventName) {
-        MidtransSDK.getInstance().trackEvent(eventName);
-    }
-
     public boolean isInstallmentAvailable() {
         return creditCardTransaction.isInstallmentAvailable();
     }
