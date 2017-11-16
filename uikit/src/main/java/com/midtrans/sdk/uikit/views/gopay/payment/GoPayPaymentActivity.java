@@ -17,6 +17,7 @@ import com.midtrans.sdk.uikit.constants.AnalyticsEventName;
 import com.midtrans.sdk.uikit.utilities.SdkUIFlowUtil;
 import com.midtrans.sdk.uikit.utilities.UiKitConstants;
 import com.midtrans.sdk.uikit.views.gopay.authorization.GoPayAuthorizationActivitiy;
+import com.midtrans.sdk.uikit.views.gopay.status.GoPayStatusActivity;
 import com.midtrans.sdk.uikit.widgets.FancyButton;
 import com.midtrans.sdk.uikit.widgets.Utils;
 
@@ -98,9 +99,8 @@ public class GoPayPaymentActivity extends BasePaymentActivity implements GoPayPa
     private void startGoPayPayment() {
         SdkUIFlowUtil.hideKeyboard(this);
         showProgressLayout();
-        presenter.startGoPayPayment(fullPhoneNumber);
-
-        presenter.trackEvent(AnalyticsEventName.BTN_CONFIRM_PAYMENT);
+        // TODO: 16/11/17 use startActivityForResult 
+        startActivity(new Intent(this, GoPayStatusActivity.class));
     }
 
     @Override
